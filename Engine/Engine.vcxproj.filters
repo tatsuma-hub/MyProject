@@ -3,9 +3,44 @@
   <ItemGroup>
     <ClCompile Include="engine_stdafx.cpp" />
     <ClCompile Include="MainEngine.cpp" />
+    <ClCompile Include="Graphics\DirectX12\Device\D3D12HelloWindow.cpp">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\DirectX12\Device\DXSample.cpp">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\DirectX12\Device\D3D12HelloConstBuffers.cpp">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine_stdafx.h" />
     <ClInclude Include="MainEngine.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\D3D12HelloWindow.h">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX12\Device\DXSample.h">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX12\Device\d3dx12.h">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX12\Device\DXSampleHelper.h">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DirectX12\Device\D3D12HelloConstBuffers.h">
+      <Filter>Graphics\DirectX12\Device</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{be0adbc8-ec1b-4cb9-b887-2b9e6d406aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX12">
+      <UniqueIdentifier>{7c5d7116-129b-4212-a4e5-123c7376683f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\DirectX12\Device">
+      <UniqueIdentifier>{02f52a6d-a26d-444a-8142-775389db33a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

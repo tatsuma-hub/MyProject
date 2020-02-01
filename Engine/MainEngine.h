@@ -31,6 +31,8 @@ namespace engine {
 		{
 		public:
 
+			/** @brief	The h instance */
+			HINSTANCE m_pHInstance = nullptr;
 			/** @brief	スクリーンの横幅. */
 			int m_screenSizeW = 1920;
 			/** @brief	スクリーンの高さ. */
@@ -82,6 +84,21 @@ namespace engine {
 		 * @date	2019/12/22
 		 */
 		void Run();
+
+		/**
+		 * @fn	HWND MainEngine::GetHWND()
+		 *
+		 * @brief	ウィンドウハンドルの取得.
+		 *
+		 * @author	tatsuma
+		 * @date	2020/02/01
+		 *
+		 * @returns	The hwnd.
+		 */
+		HWND GetHWND()
+		{
+			return m_pHWnd;
+		}
 
 	private:
 

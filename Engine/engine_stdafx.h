@@ -11,8 +11,13 @@
 ///< Win.
 #include<Windows.h>
 
+///< DirectX.
+#include "Graphics/DirectX12/Device/d3dx12.h"
+
 ///< STD.
-#include<string>
+#include <string>
+#include <wrl.h>
+#include <shellapi.h>
 
 #define r_cast reinterpret_cast
 #define	s_cast static_cast

@@ -6,7 +6,12 @@
 #include"engine_stdafx.h"
 #include"MainEngine.h"
 
+#include"Graphics/DirectX12/Device/D3D12HelloWindow.h"
+#include"Graphics/DirectX12/Device/D3D12HelloConstBuffers.h"
+
 namespace engine {
+
+	static D3D12HelloConstBuffers* g_pD3D12HelloWindow = nullptr;
 
 	MainEngine::MainEngine()
 		: m_pHWnd(nullptr)
@@ -26,6 +31,9 @@ namespace engine {
 			return false;
 		}
 
+		g_pD3D12HelloWindow = new D3D12HelloConstBuffers(initData.m_frameSizeW, initData.m_frameSizeH, initData.m_name);
+		g_pD3D12HelloWindow->OnInit();
+
 		return true;
 	}
 
@@ -41,6 +49,9 @@ namespace engine {
 			}
 			else
 			{
+				g_pD3D12HelloWindow->OnUpdate();
+				g_pD3D12HelloWindow->OnRender();
+
 			}
 		}
 	}
@@ -53,7 +64,7 @@ namespace engine {
 			CS_CLASSDC,
 			MsgProc,
 			0L, 0L,
-			GetModuleHandle(nullptr),
+			initData.m_pHInstance,
 			nullptr,
 			LoadCursor(NULL, IDC_ARROW),
 			nullptr,
@@ -63,7 +74,7 @@ namespace engine {
 		};
 		RegisterClassEx(&wc);
 
-		RECT rd;
+		RECT rd, cw;
 		HWND hDeskWnd = GetDesktopWindow();
 		GetWindowRect(hDeskWnd, &rd);
 
@@ -82,16 +93,16 @@ namespace engine {
 			nullptr
 		);
 
-		RECT rw, cw;
-		GetWindowRect(m_pHWnd, &rw);
+		GetWindowRect(m_pHWnd, &rd);
 		GetClientRect(m_pHWnd, &cw);
 
 		//ウィンドウの初期位置計算
-		int new_width = (rw.right - rw.left) - (cw.right - cw.left) + initData.m_screenSizeW;
-		int new_height = (rw.bottom - rw.top) - (cw.bottom - cw.top) + initData.m_screenSizeH;
+		int new_width = (rd.right - rd.left) - (cw.right - cw.left) + initData.m_screenSizeW;
+		int new_height = (rd.bottom - rd.top) - (cw.bottom - cw.top) + initData.m_screenSizeH;
 
 		//スクリーン座標（0,0）にウィンドウを初期配置
-		SetWindowPos(m_pHWnd, NULL, (rd.right - new_width) / 2, 0, new_width, new_height, SWP_SHOWWINDOW);
+		//SetWindowPos(m_pHWnd, NULL, (rd.right - new_width) / 2, 100, new_width, new_height, SWP_SHOWWINDOW);
+		SetWindowPos(m_pHWnd, NULL, 0, 0, new_width, new_height, SWP_SHOWWINDOW);
 
 		ShowWindow(m_pHWnd, SW_SHOWDEFAULT);
 
@@ -102,9 +113,6 @@ namespace engine {
 	{
 	}
 
-	/**
-	* ウィンドウプロシージャ.
-	*/
 	LRESULT MainEngine::MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 		switch (msg)

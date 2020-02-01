@@ -22,10 +22,18 @@
     <ClCompile Include="engine_stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Graphics\DirectX12\Device\D3D12HelloConstBuffers.cpp" />
+    <ClCompile Include="Graphics\DirectX12\Device\D3D12HelloWindow.cpp" />
+    <ClCompile Include="Graphics\DirectX12\Device\DXSample.cpp" />
     <ClCompile Include="MainEngine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine_stdafx.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\D3D12HelloConstBuffers.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\D3D12HelloWindow.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\d3dx12.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\DXSample.h" />
+    <ClInclude Include="Graphics\DirectX12\Device\DXSampleHelper.h" />
     <ClInclude Include="MainEngine.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
