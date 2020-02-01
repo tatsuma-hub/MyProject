@@ -10,6 +10,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HAS", "HAS\HAS.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "..\Engine\Engine.vcxproj", "{8087523D-51B8-4CC4-8C3B-68DC9F0D9321}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shader", "Shader", "{601CBD15-8F18-42C6-9CB9-44992F3B832E}"
+	ProjectSection(SolutionItems) = preProject
+		..\Assets\Shader\shaders.hlsl = ..\Assets\Shader\shaders.hlsl
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

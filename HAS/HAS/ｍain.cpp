@@ -1,6 +1,8 @@
 /**
-* メイン関数の実装.
-*/
+ * @file	ｍain.cpp.
+ *
+ * @brief	Implements the ｍain class
+ */
 #include"stdafx.h"
 
 /**
@@ -20,15 +22,17 @@
  */
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdshow)
 {
-	//エンジンの初期化.
+	// エンジンの初期化.
 	engine::MainEngine::InitData initData;
+	initData.m_pHInstance = hInstance;
 	initData.m_name = "HAS";
-	initData.m_screenSizeW = 1920;
-	initData.m_screenSizeH = 1080;
-	initData.m_frameSizeW = 7680;
-	initData.m_frameSizeH = 4320;
+	initData.m_screenSizeW = 1920 * 0.9;
+	initData.m_screenSizeH = 1080 * 0.9;
+	initData.m_frameSizeW = 1920 * 8; // 4K解像度的な.
+	initData.m_frameSizeH = 1080 * 8; // 4K解像度的な.
 	engine::MainEngine::Get().Initialize(initData);
 
+	// ゲームループ.
 	engine::MainEngine::Get().Run();
 
 	return 0;
